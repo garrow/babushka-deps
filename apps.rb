@@ -7,3 +7,6 @@ end
 dep 'Flux.app' do
   source 'https://justgetflux.com/mac/Flux.zip'
 end
+dep 'Steam.app' do
+  source 'http://media.steampowered.com/client/installer/steam.dmg'
+end
