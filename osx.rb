@@ -16,3 +16,12 @@ dep 'osx.AccesibilityAPIEnabled' do
     shell %q{osascript -e 'tell application "System Events" to set UI elements enabled to true'}
   }
 end
+
+dep 'osx.SharedMemoryIncreased' do
+  met? {
+    "/etc/sysctl.conf".p.grep("kern.sysv.shmmax=1610612736") and "/etc/sysctl.conf".p.grep("kern.sysv.shmall=393216")
+  }
+  meet { 
+    sudo 'echo "kern.sysv.shmmax=1610612736\nkern.sysv.shmall=393216\n" >> /etc/sysctl.conf'
+  }
+end

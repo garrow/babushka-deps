@@ -4,7 +4,17 @@ dep 'terminal' do
 end
 
 
-managed_utilities = %w{ ack vim }.collect {|u| "#{u}.managed" }
+dep 'bash.case_insensitive_completion' do
+  met? {
+    "/etc/inputrc".p.grep("set completion-ignore-case on")
+  }
+  meet {
+    sudo 'echo "set completion-ignore-case on\n" >> /etc/inputrc'
+  }
+end
+
+
+managed_utilities = %w{ ack vim tree }.collect {|u| "#{u}.managed" }
 managed_utilities.each { |u| dep u }
 dep 'managed_utilities' do
   requires managed_utilities
