@@ -9,7 +9,8 @@ dep 'Applications' do
            'RubyMine.app',
            'Dropbox.app',
            'iTerm.app',
-           'KeePassX.app'
+           'KeePassX.app',
+           'VLC.app'
 end
 
 dep 'desktop_help_utilities' do
