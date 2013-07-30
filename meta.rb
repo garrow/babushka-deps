@@ -8,7 +8,8 @@ dep 'Applications' do
 	   'Viscosity.app',
            'RubyMine.app',
            'Dropbox.app',
-	   'iTerm.app'
+           'iTerm.app',
+           'KeePassX.app'
 end
 
 dep 'desktop_help_utilities' do

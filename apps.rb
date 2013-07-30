@@ -6,6 +6,7 @@ SIMPLE_APPS = {
   'Viscosity.app' =>'http://www.sparklabs.com/downloads/Viscosity.dmg',
   'Flux.app' =>'https://justgetflux.com/mac/Flux.zip',
   'RubyMine.app' =>'http://download.jetbrains.com/ruby/RubyMine-5.4.3.dmg',
+  'KeePassX.app' =>'http://downloads.sourceforge.net/keepassx/KeePassX-0.4.3.dmg',
 }
 
 SIMPLE_APPS.each do |app_name, source_location|
