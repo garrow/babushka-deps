@@ -1,4 +1,4 @@
 dep 'garrow' do
-  requires 'terminal'
+  requires 'terminal', 'Applications'
 end
 
