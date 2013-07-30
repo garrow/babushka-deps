@@ -4,7 +4,7 @@ dep 'osx.GateKeeperDisabled' do
     shell("spctl --status |grep -c 'disabled'").to_s == "1"
   }
   meet {
-    system "spctl --master-disable"
+    sudo "spctl --master-disable"
   }
 end
 
