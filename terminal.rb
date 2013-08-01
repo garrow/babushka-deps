@@ -14,7 +14,8 @@ dep 'bash.case_insensitive_completion' do
 end
 
 
-managed_utilities = %w{ ack vim tree }.collect {|u| "#{u}.managed" }
+utilities = %w{ ack vim tree git-flow }
+managed_utilities = utilities.collect {|u| "#{u}.managed" }
 managed_utilities.each { |u| dep u }
 dep 'managed_utilities' do
   requires managed_utilities
