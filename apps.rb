@@ -1,17 +1,17 @@
 SIMPLE_APPS = {
-  'iTerm.app'  =>  'http://www.iterm2.com/downloads/stable/iTerm2_v1_0_0.zip',
-  'Dropbox.app'  =>  'https://www.dropbox.com/download?plat=mac',
-  'SizeUp.app'  =>  'http://www.irradiatedsoftware.com/download/SizeUp.zip',
-  'Google Chrome.app' =>'https://dl-ssl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg',
-  'Viscosity.app' =>'http://www.sparklabs.com/downloads/Viscosity.dmg',
-  'Flux.app' =>'https://justgetflux.com/mac/Flux.zip',
-  'RubyMine.app' =>'http://download.jetbrains.com/ruby/RubyMine-5.4.3.dmg',
-  'KeePassX.app' =>'http://downloads.sourceforge.net/keepassx/KeePassX-0.4.3.dmg',
-  'VLC.app' =>'http://get.videolan.org/vlc/2.0.7/macosx/vlc-2.0.7.dmg',
+    'iTerm' => 'http://www.iterm2.com/downloads/stable/iTerm2_v1_0_0.zip',
+    'Dropbox' => 'https://www.dropbox.com/download?plat=mac',
+    'SizeUp' => 'http://www.irradiatedsoftware.com/download/SizeUp.zip',
+    'Google Chrome' => 'https://dl-ssl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg',
+    'Viscosity' => 'http://www.sparklabs.com/downloads/Viscosity.dmg',
+    'Flux' => 'https://justgetflux.com/mac/Flux.zip',
+    'RubyMine' => 'http://download.jetbrains.com/ruby/RubyMine-5.4.3.dmg',
+    'KeePassX' => 'http://downloads.sourceforge.net/keepassx/KeePassX-0.4.3.dmg',
+    'VLC' => 'http://get.videolan.org/vlc/2.0.7/macosx/vlc-2.0.7.dmg',
 }
 
 SIMPLE_APPS.each do |app_name, source_location|
-  dep app_name do
+  dep "#{app_name}.app", :template => 'app' do
     source source_location
   end
 end
