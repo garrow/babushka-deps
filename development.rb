@@ -3,11 +3,13 @@ dep 'ruby.development' do
 	   'ruby-install.managed',
 	   'memcached.managed',
 	   'postgresql',
-	   'qt.managed'
+	   'qt.managed',
+	   'phantomjs.managed'
 end
 
 # Brew provided packages
 dep 'ruby-install.managed'
+dep 'phantomjs.managed'
 
 # TODO - handle the steps that homebrew doesnt setup as a meta package. e.g launch daemons.
 dep 'memcached.managed'
