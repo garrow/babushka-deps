@@ -1,6 +1,7 @@
 dep 'terminal' do
   requires 'dotfiles',
-	   'managed_utilities'
+	   'managed_utilities',
+           'system level gems'
 end
 
 
@@ -14,7 +15,7 @@ dep 'bash.case_insensitive_completion' do
 end
 
 
-utilities = %w{ ack vim tree git-flow }
+utilities = %w{ ack vim tree git-flow the_silver_searcher }
 managed_utilities = utilities.collect {|u| "#{u}.managed" }
 managed_utilities.each { |u| dep u }
 dep 'managed_utilities' do
