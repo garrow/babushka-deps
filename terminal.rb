@@ -1,9 +1,31 @@
 dep 'terminal' do
-  requires 'dotfiles',
-	   'managed_utilities',
-           'system level gems'
+  requires 'bash',
+   'dotfiles',
+   'managed_utilities',
+   'system level gems'
 end
 
+
+dep 'bash' do
+  requires 'bash.enabled'
+end
+
+dep 'bash.allowed shells' do
+  met? {
+    "/etc/shells".p.grep("/usr/local/bin/bash")
+  }
+  meet {
+    sudo 'echo "/usr/local/bin/bash\n" >> /etc/shells'
+  }
+end
+
+dep 'bash.enabled' do
+  requires 'bash.managed', 'bash.allowed shells'
+
+  meet {
+    sudo 'chsh /usr/local/bin/bash/ `whoami`'
+  }
+end
 
 dep 'bash.case_insensitive_completion' do
   met? {
@@ -15,7 +37,7 @@ dep 'bash.case_insensitive_completion' do
 end
 
 
-utilities = %w{ ack vim tree git-flow the_silver_searcher }
+utilities = %w{ bash ack vim tree git-flow }
 managed_utilities = utilities.collect {|u| "#{u}.managed" }
 managed_utilities.each { |u| dep u }
 dep 'managed_utilities' do
