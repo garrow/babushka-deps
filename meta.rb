@@ -1,5 +1,5 @@
 dep 'garrow' do
-  requires 'terminal', 'Applications'
+  requires 'terminal', 'Applications', 'development'
 end
 
 dep 'Applications' do
