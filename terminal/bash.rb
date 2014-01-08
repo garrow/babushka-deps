@@ -1,11 +1,3 @@
-dep 'terminal' do
-  requires 'bash',
-   'dotfiles',
-   'managed_utilities',
-   'system level gems'
-end
-
-
 dep 'bash' do
   requires 'bash.enabled'
 end
@@ -34,13 +26,5 @@ dep 'bash.case_insensitive_completion' do
   meet {
     sudo 'echo "set completion-ignore-case on\n" >> /etc/inputrc'
   }
-end
-
-
-utilities = %w{ bash ack vim tree git-flow wget }
-managed_utilities = utilities.collect {|u| "#{u}.managed" }
-managed_utilities.each { |u| dep u }
-dep 'managed_utilities' do
-  requires managed_utilities
 end
 
