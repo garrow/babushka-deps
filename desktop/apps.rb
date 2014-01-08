@@ -11,7 +11,7 @@ SIMPLE_APPS = {
     'Shiori' => 'http://aki-null.net/shiori/release/Shiori_1.0.1.zip',
     'Kindle' => 'http://kindleformac.amazon.com/40499/KindleForMac.dmg',
     'Firefox' => 'http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/23.0.1/mac/en-US/Firefox%2023.0.1.dmg',
-
+    'Colors'  => 'http://mattpatenaude.com/software/colors-1.9.zip',
 }
 
 dep "dotapps" do

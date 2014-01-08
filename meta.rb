@@ -16,5 +16,5 @@ end
 dep 'desktop_help_utilities' do
   requires 'Flux.app',
            'SizeUp.app'
-#	   'KeyRemap4MacBook.app'
+	   'KeyRemap4MacBook.app'
 end
