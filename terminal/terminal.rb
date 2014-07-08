@@ -2,9 +2,10 @@ dep 'terminal' do
   requires 'bash',
    'dotfiles',
    'managed_utilities',
-   'system level gems'
+   'bcat.gem'
 end
 
+dep 'bcat.gem'
 
 dep 'bash' do
   requires 'bash.enabled'
