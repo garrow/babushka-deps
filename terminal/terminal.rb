@@ -37,7 +37,7 @@ dep 'bash.case_insensitive_completion' do
 end
 
 
-utilities = %w{ bash ack vim tree git-flow wget }
+utilities = %w{ bash ack vim tree wget }
 managed_utilities = utilities.collect {|u| "#{u}.managed" }
 managed_utilities.each { |u| dep u }
 dep 'managed_utilities' do
