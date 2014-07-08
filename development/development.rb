@@ -1,3 +1,3 @@
 dep 'development' do
-  requires 'ruby.development'
+  requires 'ruby.development', 'rust.development'
 end
