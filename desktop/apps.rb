@@ -1,17 +1,16 @@
 SIMPLE_APPS = {
-    'iTerm' => 'http://www.iterm2.com/downloads/stable/iTerm2_v1_0_0.zip',
+    'iTerm' => 'http://www.iterm2.com/downloads/beta/iTerm2-1_0_0_20140629.zip',
     'Dropbox' => 'https://www.dropbox.com/download?plat=mac',
     'SizeUp' => 'http://www.irradiatedsoftware.com/download/SizeUp.zip',
     'Google Chrome' => 'https://dl-ssl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg',
-    'Viscosity' => 'http://www.sparklabs.com/downloads/Viscosity.dmg',
     'Flux' => 'https://justgetflux.com/mac/Flux.zip',
     'RubyMine' => 'http://download.jetbrains.com/ruby/RubyMine-5.4.3.dmg',
     'KeePassX' => 'http://downloads.sourceforge.net/keepassx/KeePassX-0.4.3.dmg',
-    'VLC' => 'http://get.videolan.org/vlc/2.0.7/macosx/vlc-2.0.7.dmg',
-    'Shiori' => 'http://aki-null.net/shiori/release/Shiori_1.0.1.zip',
+    'VLC' => 'http://get.videolan.org/vlc/2.1.4/macosx/vlc-2.1.4.dmg',
     'Kindle' => 'http://kindleformac.amazon.com/40499/KindleForMac.dmg',
     'Firefox' => 'http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases/23.0.1/mac/en-US/Firefox%2023.0.1.dmg',
     'Colors'  => 'http://mattpatenaude.com/software/colors-1.9.zip',
+    'TotalSpaces2' => 'http://downloads.binaryage.com/TotalSpaces2-2.1.10.zip'
 }
 
 dep "dotapps" do
@@ -22,10 +21,6 @@ SIMPLE_APPS.each do |app_name, source_location|
   dep "#{app_name}.app", :template => 'app' do
     source source_location
   end
-end
-
-dep 'TotalSpaces.installer' do
-  source 'http://downloads-1.binaryage.com/TotalSpaces-1.2.9.zip'
 end
 
 dep 'KeyRemap4MacBook.app' do
