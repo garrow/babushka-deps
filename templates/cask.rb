@@ -1,39 +1,32 @@
-meta :cask do
-  accepts_value_for :cask
+dep 'homebrew cask' do
+  requires 'homebrew'
 
-  def ensure_cask
-    return if `brew tap`.include?(cask)
-    shell "brew tap #{cask}"
+  def formula
+    "caskroom/cask"
   end
 
-  template {
-    meet {
-      ensure_cask
-      shell "brew cask install #{name}"
-    }
-
-    met? {
-      `brew cask list`.include? name
-    }
-  }
+  met? { shell("brew tap").split.detect { |line| line.include? formula } }
+  meet { shell 'brew', 'tap', formula  }
 end
 
-meta :brew do
-  accepts_value_for :cask
+meta :cask do
+  template do
+    requires 'homebrew cask'
 
-  def ensure_cask
-    return if `brew tap`.include?(cask)
-    shell "brew tap #{cask}"
-  end
+    def install(cask_to_install)
+      shell! 'brew', 'cask', 'install', cask_to_install
+    end
 
-  template {
-    meet {
-      ensure_cask
-      shell "brew install #{name}"
-    }
+    def cask_name
+      name.gsub(/\.cask\z/, '')
+    end
 
     met? {
-      `brew list`.include? name
+      x = shell("brew cask list").include? cask_name
     }
-  }
+    meet {
+      log "Installing Cask #{cask_name}"
+      install cask_name
+    }
+  end
 end
