@@ -6,6 +6,7 @@ dep "v2" do
            'macpass.cask',
            'macpass.cask',
            'macvim.cask',
+           'marked.cask',
            'omnigraffle.cask',
            'rubymine.cask',
            'sizeup.cask',
@@ -23,6 +24,7 @@ dep 'iterm2.cask'
 dep 'macpass.cask'
 dep 'macpass.cask'
 dep 'macvim.cask'
+dep 'marked.cask'
 dep 'omnigraffle.cask'
 dep 'rubymine.cask'
 dep 'sizeup.cask'
