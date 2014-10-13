@@ -2,7 +2,7 @@ dep 'ruby.development' do
   requires 'chruby.managed',
            'ruby-2.1.1'
 	   #'memcached.managed',
-           'postgresql',
+           'postgresql'
 	   #'qt.managed',
 	   #'phantomjs.managed'
 end
