@@ -1,5 +1,7 @@
 dep "v2" do
   requires 'alfred.cask',
+           'diffmerge.cask',
+           'fluid.cask',
            'flux.cask',
            'google-chrome.cask',
            'iterm2.cask',
@@ -10,14 +12,16 @@ dep "v2" do
            'omnigraffle.cask',
            'rubymine.cask',
            'sizeup.cask',
-           'sizeup.cask',
            'slack.cask',
            'spotify.cask',
+           'sublime-text.cask',
            'vlc.cask'
 
 end
 
 dep 'alfred.cask'
+dep 'diffmerge.cask'
+dep 'fluid.cask'
 dep 'flux.cask'
 dep 'google-chrome.cask'
 dep 'iterm2.cask'
@@ -28,8 +32,8 @@ dep 'marked.cask'
 dep 'omnigraffle.cask'
 dep 'rubymine.cask'
 dep 'sizeup.cask'
-dep 'sizeup.cask'
 dep 'slack.cask'
 dep 'spotify.cask'
+dep 'sublime-text.cask'
 dep 'totalspaces2.cask'
 dep 'vlc.cask'
