@@ -11,7 +11,7 @@ dep 'postgresql superuser exists', :role_name do
 
   def role_exists?(role_name)
     roles = shell %Q[psql postgres -c "select rolname from pg_roles WHERE rolname='#{role_name}'"]
-    roles.include? role_name   
+    roles.to_s.include? role_name
   end
 
   met? {
