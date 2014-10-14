@@ -16,8 +16,12 @@ meta :cask do
       name.gsub(/\.cask\z/, '')
     end
 
+    def installed_casks
+      shell("brew cask list").to_s
+    end
+
     met? {
-      x = shell("brew cask list").include? cask_name
+      installed_casks.include? cask_name
     }
     meet {
       log "Installing Cask #{cask_name}"
