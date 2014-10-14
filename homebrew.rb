@@ -35,7 +35,7 @@ dep 'homebrew installed launchagent', :service_name do
   met? { service.launch_agent_file.p.exist? }
   meet { 
     log "Linking #{service.name} agent - #{service.source_file} to #{service.agents}"
-    shell "ln -fs #{service.source_file} #{service.agents}", log: true
+    shell "ln -s #{service.source_file} #{service.agents}", log: true
     }
 end
 
