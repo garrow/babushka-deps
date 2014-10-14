@@ -1,4 +1,8 @@
 dep "v2" do
+  requires "apps", "bash", "ruby.development"
+end
+
+dep "apps" do
   requires 'alfred.cask',
            'diffmerge.cask',
            'fluid.cask',
