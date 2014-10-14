@@ -2,7 +2,7 @@ dep 'homebrew formulae tapped', :formulae do
   requires 'homebrew'
 
   met? { shell("brew tap").include? formulae }
-  meet { shell 'brew', 'tap', formula  }
+  meet { shell 'brew', 'tap', formulae  }
 end
 
 HomebrewManagedService = Struct.new :name do
