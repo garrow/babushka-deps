@@ -1,13 +1,8 @@
 dep 'homebrew cask' do
-  requires 'homebrew'
-
-  def formula
-    "caskroom/cask"
-  end
-
-  met? { shell("brew tap").split.detect { |line| line.include? formula } }
-  meet { shell 'brew', 'tap', formula  }
+  requires 'homebrew formulae tapped'.with("caskroom/cask")
 end
+
+
 
 meta :cask do
   template do

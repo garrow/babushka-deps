@@ -1,3 +1,10 @@
+dep 'homebrew formulae tapped', :formulae do
+  requires 'homebrew'
+
+  met? { shell("brew tap").include? formulae }
+  meet { shell 'brew', 'tap', formula  }
+end
+
 HomebrewManagedService = Struct.new :name do
   def agents
     "~/Library/LaunchAgents/"
@@ -31,7 +38,6 @@ dep 'homebrew installed launchagent', :service_name do
     shell "ln -fs #{service.source_file} #{service.launch_agent_file}", log: true 
     }
 end
-
 
 dep 'launchctl has loaded', :service_name do
   requires 'homebrew installed launchagent'.with(service_name), 
