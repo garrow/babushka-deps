@@ -1,7 +1,11 @@
 dep 'homebrew cask' do
-  requires 'homebrew formulae tapped'.with("caskroom/cask")
+  requires 'homebrew formulae tapped'.with("caskroom/cask"),
+           'brew-cask.managed'
 end
 
+dep 'brew-cask.managed' do
+  met? { shell? "brew cask" }
+end
 
 
 meta :cask do
