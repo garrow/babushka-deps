@@ -1,6 +1,6 @@
 dep 'ruby.development' do
   requires 'chruby.managed',
-           'ruby-2.1.1'
+           'ruby-2.1.1',
 	   #'memcached.managed',
            'postgresql'
 	   #'qt.managed',
