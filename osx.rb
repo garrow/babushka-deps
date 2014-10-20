@@ -2,6 +2,11 @@ dep 'osx.southpaw_scrolling' do
   requires 'osx.boolean_setting'.with("NSGlobalDomain com.apple.swipescrolldirection", false)
 end
 
+dep 'osx.tweaks' do
+  requires 'osx.boolean_setting'.with('com.apple.dock dashboard-in-overlay', true)
+
+end
+
 dep 'osx.GateKeeperDisabled' do
   met? {
     # TODO - Find a nicer way to do this, when online.
@@ -61,5 +66,7 @@ dep 'osx.boolean_setting', :setting_name, :value do
   end
   
   met? { shell("defaults read #{setting_name}").include?(expected_value) }
-  meet { shell("defaults write #{setting_name} -bool #{set_value}"), log: true }
+  meet {
+    log "Writing #{setting_name} to #{set_value}"
+    shell("defaults write #{setting_name} -bool #{set_value}", log: true) }
 end
