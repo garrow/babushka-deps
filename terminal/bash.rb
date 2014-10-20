@@ -1,6 +1,25 @@
 dep 'bash' do
-  requires 'bash.enabled'
+  requires 'bash.bin',
+           'bash.enabled'
 end
+
+dep 'bash.bin'
+
+dep 'bash.enabled' do
+  requires 'bash.bin', 'bash.allowed shells'
+
+  def homebrew_bash
+    '/usr/local/bin/bash/'
+  end
+
+  met? {
+    shell('finger `whoami` |grep bash').include? homebrew_bash
+  }
+  meet {
+    sudo "chsh #{homebrew_bash} `whoami`", log: true
+  }
+end
+
 
 dep 'bash.allowed shells' do
   met? {
@@ -11,13 +30,7 @@ dep 'bash.allowed shells' do
   }
 end
 
-dep 'bash.enabled' do
-  requires 'bash.managed', 'bash.allowed shells'
 
-  meet {
-    sudo 'chsh /usr/local/bin/bash/ `whoami`'
-  }
-end
 
 dep 'bash.case_insensitive_completion' do
   met? {

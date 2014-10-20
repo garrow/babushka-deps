@@ -21,17 +21,7 @@ end
 dep 'Inconsolata-G' do
   requires_when_unmet 'dotfiles'
 
-  def installed_font_file
-    '/Library/Fonts/Inconsolata-g.ttf'
-  end
-
-  def source_font_file
-    '~/.dotfiles/resources/Inconsolata-g.ttf'
-  end
-
-  met? { installed_font_file.p.exist? }
-  meet {
-    log "Installing Inconsolata-G Font"
-    shell "cp #{source_font_file} #{installed_font_file}", :spinner => true
-  }
+  requires 'osx.installed_font_file'.with('~/.dotfiles/resources/Inconsolata-g.ttf')
 end
+
+

@@ -25,3 +25,24 @@ dep 'osx.SharedMemoryIncreased' do
     sudo 'echo "kern.sysv.shmmax=1610612736\nkern.sysv.shmall=393216\n" >> /etc/sysctl.conf'
   }
 end
+
+dep 'osx.installed_font_file', :source_font_file do
+
+  def font_file_name
+    File.basename(source_font_file)
+  end
+
+  def installed_font_file
+    File.join font_directory, font_file_name
+  end
+
+  def font_directory
+    '/Library/Fonts/'
+  end
+
+  met? { installed_font_file.p.exist? }
+  meet {
+    log "Installing #{font_file_name} Font"
+    shell "cp #{source_font_file} #{installed_font_file}", :spinner => true
+  }
+end

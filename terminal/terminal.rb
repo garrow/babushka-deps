@@ -1,16 +1,17 @@
 dep 'terminal' do
   requires 'bash',
-   'dotfiles',
-   'managed_utilities',
-   'bcat.gem'
+    'bash.case_insensitive_completion',
+    'dotfiles',
+    'bcat',
+    'ack',
+    'vim',
+    'tree',
+    'wget'
 end
 
-dep 'bcat.gem'
-
-utilities = %w{ bash ack vim tree wget }
-managed_utilities = utilities.collect {|u| "#{u}.managed" }
-managed_utilities.each { |u| dep u }
-dep 'managed_utilities' do
-  requires managed_utilities
-end
+dep 'bcat', template: 'gem'
+dep 'ack',  template: 'bin'
+dep 'vim',  template: 'bin'
+dep 'tree', template: 'bin'
+dep 'wget', template: 'bin'
 
