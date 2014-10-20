@@ -4,6 +4,7 @@ dep "apps" do
            'fluid.cask',
            'flux.cask',
            'google-chrome.cask',
+           'google-drive.cask',
            'iterm2.cask',
            'libreoffice.cask',
            'macpass.cask',
@@ -25,6 +26,7 @@ dep 'diffmerge.cask'
 dep 'fluid.cask'
 dep 'flux.cask'
 dep 'google-chrome.cask'
+dep 'google-drive.cask'
 dep 'iterm2.cask'
 dep 'libreoffice.cask'
 dep 'macpass.cask'
