@@ -1,3 +1,7 @@
+dep 'osx.southpaw_scrolling' do
+  requires 'osx.boolean_setting'.with("NSGlobalDomain com.apple.swipescrolldirection", false)
+end
+
 dep 'osx.GateKeeperDisabled' do
   met? {
     # TODO - Find a nicer way to do this, when online.
@@ -45,4 +49,17 @@ dep 'osx.installed_font_file', :source_font_file do
     log "Installing #{font_file_name} Font"
     shell "cp #{source_font_file} #{installed_font_file}", :spinner => true
   }
+end
+
+dep 'osx.boolean_setting', :setting_name, :value do
+  def set_value
+    value ? 'true' : 'false'
+  end
+
+  def expected_value
+    value ? '1' : '0'
+  end
+  
+  met? { shell("defaults read #{setting_name}").include?(expected_value) }
+  meet { shell("defaults write #{setting_name} -bool #{set_value}"), log: true }
 end
