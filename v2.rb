@@ -9,6 +9,7 @@ dep "apps" do
            'flux.cask',
            'google-chrome.cask',
            'iterm2.cask',
+           'libreoffice.cask',
            'macpass.cask',
            'macpass.cask',
            'macvim.cask',
@@ -29,6 +30,7 @@ dep 'fluid.cask'
 dep 'flux.cask'
 dep 'google-chrome.cask'
 dep 'iterm2.cask'
+dep 'libreoffice.cask'
 dep 'macpass.cask'
 dep 'macpass.cask'
 dep 'macvim.cask'
