@@ -11,6 +11,11 @@ dep 'ruby-2.1.1' do
   requires 'ruby installed'.with('ruby', '2.1.1')
 end
 
+dep 'ruby-2.1.3' do
+  requires 'ruby installed'.with('ruby', '2.1.3')
+end
+
+
 dep 'ruby installed', :runtime, :version do
   runtime.default('ruby')
   version.default('2.1.1')
