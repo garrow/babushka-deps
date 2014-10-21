@@ -1,9 +1,9 @@
 dep 'osx.southpaw_scrolling' do
-  requires 'osx.boolean_setting'.with("NSGlobalDomain com.apple.swipescrolldirection", false)
+  requires 'osx.boolean_setting'.with("NSGlobalDomain com.apple.swipescrolldirection", :false)
 end
 
 dep 'osx.tweaks' do
-  requires 'osx.boolean_setting'.with('com.apple.dock dashboard-in-overlay', true)
+  requires 'osx.boolean_setting'.with('com.apple.dock dashboard-in-overlay', :true)
 
 end
 
@@ -56,17 +56,29 @@ dep 'osx.installed_font_file', :source_font_file do
   }
 end
 
-dep 'osx.boolean_setting', :setting_name, :value do
-  def set_value
-    value ? 'true' : 'false'
+dep 'osx.boolean_setting', :setting_name, :setting_value do
+  setting_value.default(:false)
+
+  VALUES = { 'true' => '1', 'false' => '0'}
+
+  def write_value
+    setting_value.to_s
   end
 
   def expected_value
-    value ? '1' : '0'
+    VALUES[write_value]
   end
-  
-  met? { shell("defaults read #{setting_name}").include?(expected_value) }
+
+  def current_value
+    shell("defaults read #{setting_name}")
+  end
+
+  met? {
+    current_value.include?(expected_value)
+  }
+
   meet {
-    log "Writing #{setting_name} to #{set_value}"
-    shell("defaults write #{setting_name} -bool #{set_value}", log: true) }
+    log "Writing #{setting_name} to #{write_value}"
+    shell("defaults write #{setting_name} -bool #{write_value}", log: true)
+  }
 end
