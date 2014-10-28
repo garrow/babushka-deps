@@ -2,37 +2,33 @@ dep 'osx.southpaw_scrolling' do
   requires 'osx.boolean_setting'.with("NSGlobalDomain com.apple.swipescrolldirection", :false)
 end
 
-dep 'osx.tweaks' do
-  requires 'osx.boolean_setting'.with('com.apple.dock dashboard-in-overlay', :true)
-
+dep 'osx' do
+  requires 'osx.boolean_setting'.with('com.apple.dock dashboard-in-overlay', :true),
+    'osx.southpaw_scrolling',
+    'osx.finder.show_file_extensions',
+    'osx.finder.show_posix_path_as_title',
+    'osx.dont_save_to_icloud',
+    'osx.Allow text selection in Preview'
 end
 
-dep 'osx.GateKeeperDisabled' do
-  met? {
-    # TODO - Find a nicer way to do this, when online.
-    shell("spctl --status |grep -c 'disabled'").to_s == "1"
-  }
-  meet {
-    sudo "spctl --master-disable"
-  }
+dep 'osx.Allow text selection in Preview' do
+  requires 'osx.boolean_setting'.with(
+    'com.apple.finder QLEnableTextSelection', :true)
 end
 
-dep 'osx.AccesibilityAPIEnabled' do
-  met? {
-   "/private/var/db/.AccessibilityAPIEnabled".p.exists?
-  }
-  meet {
-    shell %q{osascript -e 'tell application "System Events" to set UI elements enabled to true'}
-  }
+dep'osx.finder.show_file_extensions' do
+  requires 'osx.boolean_setting'.with(
+    'NSGlobalDomain AppleShowAllExtensions', :true)
 end
 
-dep 'osx.SharedMemoryIncreased' do
-  met? {
-    "/etc/sysctl.conf".p.grep("kern.sysv.shmmax=1610612736") and "/etc/sysctl.conf".p.grep("kern.sysv.shmall=393216")
-  }
-  meet { 
-    sudo 'echo "kern.sysv.shmmax=1610612736\nkern.sysv.shmall=393216\n" >> /etc/sysctl.conf'
-  }
+dep 'osx.finder.show_posix_path_as_title' do
+  requires 'osx.boolean_setting'.with(
+    'com.apple.finder _FXShowPosixPathInTitle', :true)
+end
+
+dep 'osx.dont_save_to_icloud' do
+  requires 'osx.boolean_setting'.with(
+    'NSGlobalDomain NSDocumentSaveNewDocumentsToCloud', :false)
 end
 
 dep 'osx.installed_font_file', :source_font_file do
@@ -59,18 +55,20 @@ end
 dep 'osx.boolean_setting', :setting_name, :setting_value do
   setting_value.default(:false)
 
-  VALUES = { 'true' => '1', 'false' => '0'}
+  def values
+    { 'true' => '1', 'false' => '0'}
+  end
 
   def write_value
     setting_value.to_s
   end
 
   def expected_value
-    VALUES[write_value]
+    values[write_value]
   end
 
   def current_value
-    shell("defaults read #{setting_name}")
+    shell("defaults read #{setting_name}").to_s
   end
 
   met? {
