@@ -1,6 +1,7 @@
 dep "apps" do
   requires 'alfred.cask',
            'diffmerge.cask',
+           'dropbox',
            'fluid.cask',
            'flux.cask',
            'google-chrome.cask',
@@ -25,6 +26,7 @@ end
 
 dep 'alfred.cask'
 dep 'diffmerge.cask'
+dep 'dropbox', template: 'cask'
 dep 'fluid.cask'
 dep 'flux.cask'
 dep 'google-chrome.cask'
