@@ -12,12 +12,14 @@ dep "apps" do
            'macvim.cask',
            'marked.cask',
            'omnigraffle.cask',
+           'phantomjs.cask',
            'rubymine.cask',
            'sizeup.cask',
            'slack.cask',
            'spotify.cask',
            'sublime-text.cask',
-           'vlc.cask'
+           'vlc.cask',
+           'zeroxdbe-eap'
 
 end
 
@@ -34,6 +36,7 @@ dep 'macpass.cask'
 dep 'macvim.cask'
 dep 'marked.cask'
 dep 'omnigraffle.cask'
+dep 'phantomjs.cask'
 dep 'rubymine.cask'
 dep 'sizeup.cask'
 dep 'slack.cask'
@@ -41,3 +44,4 @@ dep 'spotify.cask'
 dep 'sublime-text.cask'
 dep 'totalspaces2.cask'
 dep 'vlc.cask'
+dep 'zeroxdbe-eap', template: 'cask'
