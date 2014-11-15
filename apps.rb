@@ -19,6 +19,7 @@ dep "apps" do
            'slack.cask',
            'spotify.cask',
            'sublime-text.cask',
+           'transmission',
            'vlc.cask',
            'zeroxdbe-eap'
 
@@ -44,6 +45,7 @@ dep 'sizeup.cask'
 dep 'slack.cask'
 dep 'spotify.cask'
 dep 'sublime-text.cask'
+dep 'transmission', template: 'cask'
 dep 'totalspaces2.cask'
 dep 'vlc.cask'
 dep 'zeroxdbe-eap', template: 'cask'
