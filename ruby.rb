@@ -1,24 +1,20 @@
 dep 'ruby.development' do
   requires 'chruby.managed',
-           'ruby-2.1.1',
+           'ruby-2.1.4',
 	   #'memcached.managed',
            'postgresql'
 	   #'qt.managed',
 	   #'phantomjs.managed'
 end
 
-dep 'ruby-2.1.1' do
-  requires 'ruby installed'.with('ruby', '2.1.1')
+dep 'ruby-2.1.4' do
+  requires 'ruby installed'.with('ruby', '2.1.4'),
+           'bundler on ruby-2.1.4'
 end
-
-dep 'ruby-2.1.3' do
-  requires 'ruby installed'.with('ruby', '2.1.3')
-end
-
 
 dep 'ruby installed', :runtime, :version do
   runtime.default('ruby')
-  version.default('2.1.1')
+  version.default('2.1.4')
 
   requires 'chruby.managed',
            'ruby-install.managed'
@@ -33,6 +29,31 @@ dep 'ruby installed', :runtime, :version do
     shell "ruby-install #{runtime} #{version}", :log => true
   }
 end
+
+dep 'bundler on ruby-2.1.4' do
+  requires 'ruby installed'.with('ruby', '2.1.4')
+
+  def gem_name
+    "bundler"
+  end
+
+  def ruby_version
+    "ruby-2.1.4"
+  end
+
+  def chruby_exec
+    "/usr/local/bin/chruby-exec #{ruby_version} -- "
+  end
+
+  met? {
+    shell("#{chruby_exec} gem list --local").include? gem_name
+  }
+  meet {
+    shell("#{chruby-exec} gem install #{gem_name}")
+  }
+end
+
+
 
 # Brew provided packages
 dep 'ruby-install.managed'
