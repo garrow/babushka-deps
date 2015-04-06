@@ -5,10 +5,12 @@ dep "apps" do
            'diffmerge.cask',
            'dropbox',
            'fluid.cask',
+           'firefox',
            'flux.cask',
            'google-chrome.cask',
            'google-drive.cask',
            'iterm2.cask',
+           'istat-menus',
            'libreoffice.cask',
            'macpass.cask',
            'macpass.cask',
@@ -22,16 +24,18 @@ dep "apps" do
            'spotify.cask',
            'sublime-text.cask',
            'transmission',
-           'vlc.cask'
-           #'zeroxdbe-eap'
+           'vlc.cask',
+           '0xdbe-eap'
 
 end
 
-dep 'alfred.cask'
-dep 'acorn', template: 'cask'
-dep 'diffmerge.cask'
 dep '1password', template: 'cask'
+dep 'acorn', template: 'cask'
+dep 'alfred.cask'
+dep 'diffmerge.cask'
 dep 'dropbox', template: 'cask'
+dep 'firefox', template: 'cask'
+dep 'istat-menus', template: 'cask'
 dep 'fluid.cask'
 dep 'flux.cask'
 dep 'google-chrome.cask'
@@ -49,7 +53,7 @@ dep 'sizeup.cask'
 dep 'slack.cask'
 dep 'spotify.cask'
 dep 'sublime-text.cask'
-dep 'transmission', template: 'cask'
 dep 'totalspaces2.cask'
+dep 'transmission', template: 'cask'
 dep 'vlc.cask'
-dep 'zeroxdbe-eap', template: 'cask'
+dep '0xdbe-eap', template: 'cask'
