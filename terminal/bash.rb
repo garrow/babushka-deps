@@ -1,6 +1,6 @@
 dep 'bash' do
-  requires 'bash.bin',
-           'bash.enabled'
+#  requires 'bash.bin',
+#           'bash.enabled'
 end
 
 dep 'bash.bin'

@@ -22,8 +22,8 @@ dep "apps" do
            'spotify.cask',
            'sublime-text.cask',
            'transmission',
-           'vlc.cask',
-           'zeroxdbe-eap'
+           'vlc.cask'
+           #'zeroxdbe-eap'
 
 end
 
