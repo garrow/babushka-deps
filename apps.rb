@@ -1,5 +1,7 @@
 dep "apps" do
-  requires 'alfred.cask',
+  requires '1password',
+           'alfred.cask',
+           'acorn',
            'diffmerge.cask',
            'dropbox',
            'fluid.cask',
@@ -26,7 +28,9 @@ dep "apps" do
 end
 
 dep 'alfred.cask'
+dep 'acorn', template: 'cask'
 dep 'diffmerge.cask'
+dep '1password', template: 'cask'
 dep 'dropbox', template: 'cask'
 dep 'fluid.cask'
 dep 'flux.cask'
