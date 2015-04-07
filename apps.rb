@@ -22,6 +22,7 @@ dep "apps" do
            'sizeup.cask',
            'slack.cask',
            'screenhero',
+           'skype',
            'spotify.cask',
            'sublime-text.cask',
            'transmission',
@@ -53,6 +54,7 @@ dep 'rubymine.cask'
 dep 'sizeup.cask'
 dep 'slack.cask'
 dep 'screenhero', template: 'cask'
+dep 'skype', template: 'cask'
 dep 'spotify.cask'
 dep 'sublime-text.cask'
 dep 'totalspaces2.cask'
