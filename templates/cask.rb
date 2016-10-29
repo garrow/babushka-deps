@@ -1,9 +1,9 @@
 dep 'homebrew cask' do
   requires 'homebrew formulae tapped'.with("caskroom/cask"),
-           'brew-cask.managed'
+           'cask.managed'
 end
 
-dep 'brew-cask.managed' do
+dep 'cask.managed' do
   met? { shell? "brew cask" }
 end
 
